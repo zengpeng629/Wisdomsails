@@ -35,3 +35,12 @@ def take_notes(transcribe):
     )
 
     return completion.choices[0].message["content"]
+
+def get_agents_info():
+    # You can add more agents here
+    agents_info = [
+        {"name": "Albert", "image": "icons/albert.png", "description": "Your meeting notes buddy.", "link": "/Albert"},
+        {"name": "Boston", "image": "icons/boston.png", "description": "Your document helper.", "link": "/Boston"},
+        {"name": "Carla", "image": "icons/carla.png", "description": "Your daily life assistant.", "link": "/Carla"},
+    ]
+    return agents_info

@@ -6,6 +6,7 @@
 """
 import streamlit as st 
 import utils.app_components as app_components
+import utils.utils as utils
 
 app_components.render_socialmedia()
 
@@ -30,22 +31,8 @@ st.write("Welcome to Wisdomsails!\n\nI'm Zeng, your AI manager here to assist yo
 st.markdown("#### Meet Our AI Agents")
 
 # Assume agents_info is a list of dictionaries where each dictionary contains the info of one agent
-agents_info = [
-    {"name": "Albert", "image": "icons/albert.png", "description": "Your meeting notes buddy.", "link": "/Albert"},
-    {"name": "Boston", "image": "icons/boston.png", "description": "Your document helper.", "link": "/Boston"},
-    {"name": "Carla", "image": "icons/carla.png", "description": "Your daily life assistant.", "link": "/Carla"},
-]
-
-# Create rows of 3 agents until all agents have been displayed
-for i in range(0, len(agents_info), 3):
-    cols = st.columns(3)  # Create a new row with 3 columns
-    for j in range(3):  # Fill in each column
-        agent = agents_info[i+j] if i+j < len(agents_info) else None  # Get the agent info if exists, else None
-        if agent:
-            with cols[j]:
-                st.image(agent["image"], use_column_width=True)  # Display agent image
-                st.markdown(f"<a href='{agent['link']}' style='text-decoration: none; background-color: #204876; color: white; padding: 2px 6px; border-radius: 5px; display: inline-block; text-align: center;'>{agent['name']}</a>", unsafe_allow_html=True)
-                st.write(agent["description"])
+agents_info = utils.get_agents_info()
+app_components.render_agent_gallery(agents_info)
 
 st.markdown("#### Privacy")
 st.write(home_privacy)
