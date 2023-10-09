@@ -6,4 +6,8 @@
 """
 import streamlit as st
 
+# Display the image
+image_path = "icons/boston.png"
+st.image(image_path, caption='Boston - Your documents buddy', use_column_width=True)
+
 st.write("This is Boston page")

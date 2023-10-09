@@ -6,4 +6,8 @@
 """
 import streamlit as st
 
+# Display the image
+image_path = "icons/carla.png"
+st.image(image_path, caption='Carla - Your life coach', use_column_width=True)
+
 st.write("This is Carla page")
