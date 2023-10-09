@@ -30,6 +30,5 @@ st.write("Welcome to Wisdomsails!\n\nI'm Zeng, your AI manager here to assist yo
 st.markdown("#### Privacy")
 st.write(home_privacy)
 
-st.markdown("#### Who are we?")
 
 
