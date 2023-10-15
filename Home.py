@@ -8,7 +8,7 @@ import streamlit as st
 import utils.app_components as app_components
 import utils.utils as utils
 
-app_components.render_socialmedia()
+app_components.render_sidebar()
 
 # copies 
 home_title = "WisdomSails"
@@ -28,7 +28,7 @@ st.markdown("#### Greetings!")
 st.write("Welcome to Wisdomsails!\n\nI'm Zeng, your AI manager here to assist you throughout your journey in this wonderful place.\n\nWe have several AI agents here like Albert, Boston, and Carla, who are all ready to help you with your daily life.\n\nFeel free to reach out for any assistance!")
 
 # Gallery of AI Agents
-st.markdown("#### Meet Our AI Agents")
+st.markdown("#### Meet Our Agents")
 
 # Assume agents_info is a list of dictionaries where each dictionary contains the info of one agent
 agents_info = utils.get_agents_info()

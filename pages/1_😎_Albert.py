@@ -1,8 +1,11 @@
 import whisper
 import streamlit as st
 import speech_recognition as sr
+import utils.app_components as app_components
 from pydub import AudioSegment
 from utils.utils import take_notes
+
+app_components.render_sidebar()
 
 # Initialize speech recognition
 r = sr.Recognizer()
@@ -27,6 +30,9 @@ st.markdown("""
 uploaded_file = st.file_uploader("Choose an audio file to get started...", type=["m4a", "wav", "mp3", "flac"])
 
 if st.button('Click here, let Albert work!', type="primary") and uploaded_file is not None:
+    if not openai_api_key:
+        st.info("Please add your OpenAI API key to continue.")
+        st.stop()
     # Check the file format and convert if necessary
     file_details = uploaded_file.name.split('.')
     file_format = file_details[-1]
@@ -43,17 +49,11 @@ if st.button('Click here, let Albert work!', type="primary") and uploaded_file i
         with audio_file as source:
             audio_data = r.record(source)
             try:
-                # transcription = r.recognize_whisper(
-                #     audio_data,
-                #     model="medium.en",
-                #     show_dict=True,
-                # )["text"]
-                # transcription = r.recognize_google(audio_data, language= 'en-in')
                 model = whisper.load_model("base")
                 transcription = model.transcribe("temp.wav")["text"]
 
                 st.success('Transcription completed! Albert is now generating meeting notes...')
-                notes = take_notes(transcription)
+                notes = take_notes(transcription, openai_api_key)
                 st.markdown("**Notes:**")
                 st.write(notes)
                 

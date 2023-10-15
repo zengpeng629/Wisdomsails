@@ -6,7 +6,6 @@
 """
 import openai
 import os
-from dotenv import load_dotenv
 
 system_prompt = """
 Your name is Albert.
@@ -21,9 +20,8 @@ You can assume that you are writing an email to the user with the notes from the
 You can also assume that the user is familiar with you, and you don't need to introduce yourself, simply like say hi and say this is sent by Albert, make your tone more like a friend.
 """
 
-def take_notes(transcribe):
-    load_dotenv()
-    openai.api_key = os.getenv("OPENAI_API_KEY")
+def take_notes(transcribe, openai_api_key):
+    openai.api_key = openai_api_key
     openai.api_base = os.getenv("OPENAI_API_BASE")
     
     completion = openai.ChatCompletion.create(
