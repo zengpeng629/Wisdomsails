@@ -5,9 +5,32 @@
  @Email: zeng.peng@hotmail.com
 """
 import streamlit as st
-import utils.app_components as app_components
+from streamlit_option_menu import option_menu
+from utils.lang import en, cn
 
-app_components.render_socialmedia()
+default_index = 0
+if "locale" in st.session_state:
+    default_index = 1 if st.session_state.locale == cn else 0
+
+selected_lang = option_menu(
+    menu_title=None,
+    options=["EN", "中文", ],
+    icons=["globe2", "translate"],
+    menu_icon="cast",
+    default_index=default_index,
+    orientation="horizontal",
+)
+
+match selected_lang:
+    case "EN":
+        st.session_state.locale = en
+    case "中文":
+        st.session_state.locale = cn
+
+with st.sidebar:
+    openai_api_key = st.text_input(f"{st.session_state.locale.input_key_instruct}", key="openai_api_key", type="password")
+    st.write(f"{st.session_state.locale.get_key_instruct} [link](https://platform.openai.com/account/api-keys)")
+
 image_path = "icons/boston.png"
 st.image(image_path, caption='Boston - Your buddy', use_column_width=True)
 
@@ -24,6 +47,7 @@ st.markdown("""
     }
     </style>
     """,unsafe_allow_html=True)
+
 msg_from_boston = "Hello, I am Boston, your document helper. \n\n\
 You just need to upload your document, \
 and I will help you by answering your questions based on those documents."

@@ -24,7 +24,6 @@ class Locale:
     albert: str
     albert_desc: str
     albert_intro: str
-    albert_ability: str
     albert_upload_instruct: str
     albert_button: str
     transcribing: str
@@ -51,8 +50,7 @@ en = Locale(
     # Albert
     albert = "Albert",
     albert_desc = "Your meeting notes taker.",
-    albert_intro = "Albert - Your meeting notes taker.",
-    albert_ability = "Upload your meeting transcription, and Albert will generate meeting notes for you.",
+    albert_intro = "Hi! My name is Albert, your meeting notes taker. \n\nMeetings can be intense, engaging, or sometimes just long. Whether you've forgotten to jot down critical details, or simply didn't want the hassle of note-taking, I'm here to help. \n\nJust upload your meeting audio, and I will generate meeting notes as an email for you.",
     albert_upload_instruct = "Upload your meeting transcription here:",
     albert_button = "Click here, Let Albert work for you!",
     transcribing = "Albert is transcribing your audio, please wait...",
@@ -80,8 +78,7 @@ cn = Locale(
     # Albert
     albert = "阿伯特",
     albert_desc = "您的会议记录员。",
-    albert_intro = "阿伯特 - 您的会议记录员。",
-    albert_ability = "上传您的会议录音，阿伯特将为您生成会议记录。",
+    albert_intro = "嗨！我的名字是阿伯特，您的会议记录员。\n\n会议可能会很紧张，有趣，或者有时只是很长。无论您是忘记了记录重要细节，还是只是不想麻烦记录笔记，我都可以帮助您。\n\n只需上传会议音频，我就会为您生成会议记录。",
     albert_upload_instruct = "在这里上传您的会议录音:",
     albert_button = "点击这里，让阿伯特开始工作!",
     transcribing = "阿伯特正在处理您的音频，请稍候...",

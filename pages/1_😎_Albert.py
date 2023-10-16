@@ -34,10 +34,27 @@ r = sr.Recognizer()
 
 # Display the image
 image_path = "icons/albert.png"
-st.image(image_path, caption=f"{st.session_state.locale.albert_intro}", use_column_width=True)
+st.image(image_path, caption=f"{st.session_state.locale.albert}", use_column_width=True)
 
 # Streamlit app
-st.markdown(f"{st.session_state.locale.albert_ability}")
+st.markdown("""
+    <style>
+    .stTextArea [data-baseweb=base-input] {
+        background-image: linear-gradient(140deg, rgb(54, 36, 31) 0%, rgb(121, 56, 100) 50%, rgb(106, 117, 25) 75%);
+        -webkit-text-fill-color: white;
+    }
+
+    .stTextArea [data-baseweb=base-input] [disabled=""]{
+        background-image: linear-gradient(45deg, red, purple, red);
+        -webkit-text-fill-color: gray;
+    }
+    </style>
+    """,unsafe_allow_html=True)
+
+st.text_area(
+    label="",
+    value=st.session_state.locale.albert_intro,
+    height=160)
 
 # Custom Styling
 st.markdown("""
