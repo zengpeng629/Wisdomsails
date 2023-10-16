@@ -6,16 +6,12 @@ from utils.utils import agent_take_notes
 from streamlit_option_menu import option_menu
 from utils.lang import en, cn
 
-default_index = 0
-if "locale" in st.session_state:
-    default_index = 1 if st.session_state.locale == cn else 0
-
 selected_lang = option_menu(
     menu_title=None,
     options=["EN", "中文", ],
     icons=["globe2", "translate"],
     menu_icon="cast",
-    default_index=default_index,
+    default_index=0 if st.session_state.locale == en else 1,
     orientation="horizontal",
 )
 
