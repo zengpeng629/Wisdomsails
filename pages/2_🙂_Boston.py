@@ -9,7 +9,7 @@ import utils.app_components as app_components
 
 app_components.render_socialmedia()
 image_path = "icons/boston.png"
-st.image(image_path, caption='Boston - Your documents buddy', use_column_width=True)
+st.image(image_path, caption='Boston - Your buddy', use_column_width=True)
 
 st.markdown("""
     <style>
