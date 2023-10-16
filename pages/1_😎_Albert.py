@@ -11,7 +11,7 @@ selected_lang = option_menu(
     options=["EN", "中文", ],
     icons=["globe2", "translate"],
     menu_icon="cast",
-    default_index=0 if st.session_state.locale == en else 1,
+    default_index=0,
     orientation="horizontal",
 )
 

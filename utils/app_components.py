@@ -15,5 +15,5 @@ def render_agent_gallery(agents_info):
             if agent:
                 with cols[j]:
                     st.image(agent["image"], use_column_width=True)  # Display agent image
-                    st.markdown(f"<a href='{agent['link']}' style='text-decoration: none; background-color: #204876; color: white; padding: 2px 6px; border-radius: 5px; display: inline-block; text-align: center;'>{agent['name']}</a>", unsafe_allow_html=True)
+                    st.markdown(f"<a href='{agent['link']}' target=\"_self\" style='text-decoration: none; background-color: #204876; color: white; padding: 2px 6px; border-radius: 5px; display: inline-block; text-align: center;'>{agent['name']}</a>", unsafe_allow_html=True)
                     st.write(agent["description"])
