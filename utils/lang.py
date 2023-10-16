@@ -45,7 +45,7 @@ en = Locale(
     welcome_words = "Welcome to Wisdomsails!\n\nI'm Zeng, your AI manager here to assist you throughout your journey in this wonderful place.\n\nWe have several AI agents here like Albert, Boston, and Carla, who are all ready to help you with your daily life.\n\nFeel free to reach out for any assistance!",
     meet_agents = "Meet Our Agents",
     privacy = "Privacy",
-    key_not_found = "API key not found. Please enter your API key.",
+    key_not_found = "API key not found. Please enter your API key in left side bar.",
     # ----------------- Agents -----------------
     # Albert
     albert = "Albert",
@@ -73,7 +73,7 @@ cn = Locale(
     welcome_words = "欢迎来到人类慧帆！\n\n我是Zeng，您的AI管理员，我将在这个神奇的地方为您提供帮助。\n\n我们这里有几个AI代理，如Albert，Boston和Carla，他们都准备好帮助您处理日常生活中的问题。\n\n如有任何疑问，请随时与我们联系！",
     meet_agents = "见见我们的代理吧!",
     privacy = "隐私",
-    key_not_found = "没有找到您的OpenAI Key。请输入！",
+    key_not_found = "没有找到您的OpenAI Key。请在侧边栏输入！",
     # ----------------- Agents -----------------
     # Albert
     albert = "阿伯特",
