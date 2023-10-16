@@ -6,11 +6,6 @@
 """
 import streamlit as st
 
-def st_button(url, label, font_awesome_icon):
-    st.markdown('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">', unsafe_allow_html=True)
-    button_code = f'''<a href="{url}" target=_blank><i class="fa {font_awesome_icon}"></i>   {label}</a>'''
-    return st.markdown(button_code, unsafe_allow_html=True)
-
 def render_agent_gallery(agents_info):
     # Create rows of 3 agents until all agents have been displayed
     for i in range(0, len(agents_info), 3):

@@ -17,22 +17,22 @@ if "locale" not in st.session_state:
 if st.session_state.locale is not None:
         default_index = 0 if st.session_state.locale == en else 1
 
+selected_lang = option_menu(
+    menu_title=None,
+    options=["EN", "中文", ],
+    icons=["globe2", "translate"],
+    menu_icon="cast",
+    default_index=default_index,
+    orientation="horizontal",
+)
+
+match selected_lang:
+    case "EN":
+        st.session_state.locale = en
+    case "中文":
+        st.session_state.locale = cn
+        
 with st.sidebar:
-    selected_lang = option_menu(
-        menu_title=None,
-        options=["EN", "中文", ],
-        icons=["globe2", "translate"],
-        menu_icon="cast",
-        default_index=default_index,
-        orientation="horizontal",
-    )
-
-    match selected_lang:
-        case "EN":
-            st.session_state.locale = en
-        case "中文":
-            st.session_state.locale = cn
-
     openai_api_key = st.text_input(f"{st.session_state.locale.input_key_instruct}", key="openai_api_key", type="password")
     st.write(f"{st.session_state.locale.get_key_instruct} [link](https://platform.openai.com/account/api-keys)")
 
