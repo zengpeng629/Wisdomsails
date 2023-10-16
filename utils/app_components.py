@@ -11,15 +11,6 @@ def st_button(url, label, font_awesome_icon):
     button_code = f'''<a href="{url}" target=_blank><i class="fa {font_awesome_icon}"></i>   {label}</a>'''
     return st.markdown(button_code, unsafe_allow_html=True)
 
-def render_sidebar():
-  with st.sidebar:
-      openai_api_key = st.text_input("OpenAI API Key", key="openai_api_key", type="password")
-      "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
-  
-      st.write("Let's connect!")
-      st_button(url="https://twitter.com/viapeng", label="Twitter", font_awesome_icon="fa-twitter")
-      st_button(url="www.linkedin.com/in/zengpeng", label="LinkedIn", font_awesome_icon="fa-linkedin")
-
 def render_agent_gallery(agents_info):
     # Create rows of 3 agents until all agents have been displayed
     for i in range(0, len(agents_info), 3):

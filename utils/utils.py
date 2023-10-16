@@ -20,7 +20,7 @@ You can assume that you are writing an email to the user with the notes from the
 You can also assume that the user is familiar with you, and you don't need to introduce yourself, simply like say hi and say this is sent by Albert, make your tone more like a friend.
 """
 
-def take_notes(transcribe, openai_api_key):
+def agent_take_notes(transcribe, openai_api_key):
     openai.api_key = openai_api_key
     openai.api_base = os.getenv("OPENAI_API_BASE")
     
@@ -34,11 +34,11 @@ def take_notes(transcribe, openai_api_key):
 
     return completion.choices[0].message["content"]
 
-def get_agents_info():
+def get_agents_info(locale):
     # You can add more agents here
     agents_info = [
-        {"name": "Albert", "image": "icons/albert.png", "description": "Your meeting notes buddy.", "link": "/Albert"},
-        {"name": "Boston", "image": "icons/boston.png", "description": "Your document helper.", "link": "/Boston"},
-        {"name": "Carla", "image": "icons/carla.png", "description": "Your daily life assistant.", "link": "/Carla"},
+        {"name": f"{locale.albert}", "image": "icons/albert.png", "description": f"{locale.albert_desc}", "link": "/Albert"},
+        {"name": f"{locale.boston}", "image": "icons/boston.png", "description": f"{locale.boston_desc}", "link": "/Boston"},
+        {"name": f"{locale.carla}", "image": "icons/carla.png", "description": f"{locale.carla_desc}", "link": "/Carla"},
     ]
     return agents_info
