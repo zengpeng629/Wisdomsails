@@ -9,4 +9,5 @@ openai
 SoundFile
 torch
 numba==0.58.0
+streamlit_option_menu
 git+https://github.com/openai/whisper.git
